@@ -1,0 +1,9 @@
+passwordPostiveRules:
+    #Must consist of a mixture of lowercase letters and numerical digits only, with at least one of each
+      - rule1: "^([0-9]+[a-z]+|[a-z]+[0-9]+)[0-9a-z]*$" 
+    #Must be between 5 and 12 characters in length
+      - rule2: "^(.{5,12}$)"
+passwordNegativeRules:
+    #Must not contain any sequence of characters immediately followed by the same sequence
+      - rule1: "(\\S+?)\\1"
+  
