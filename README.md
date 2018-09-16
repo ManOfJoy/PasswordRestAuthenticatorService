@@ -67,3 +67,18 @@ Result will be:
 ```
 Will show results of 21 tests including both valid and invalid combinations
 ```
+
+## Manage password rules
+Rules are categorized as positive and negative.  Rules with 'Must' are in passwordPositiveRules and 'Must not' are in passwordNegativeRules.  Any future rules can be added in application.yml accordingly.
+
+```
+application.yml
+passwordPostiveRules:
+    #Must consist of a mixture of lowercase letters and numerical digits only, with at least one of each
+      - rule1: "^([0-9]+[a-z]+|[a-z]+[0-9]+)[0-9a-z]*$" 
+    #Must be between 5 and 12 characters in length
+      - rule2: "^(.{5,12}$)"
+passwordNegativeRules:
+    #Must not contain any sequence of characters immediately followed by the same sequence
+      - rule1: "(\\S+?)\\1"
+```
